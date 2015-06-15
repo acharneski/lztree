@@ -118,7 +118,9 @@ public class Main {
 
   private BlobId feed(String title, String text) {
     Blob input = new Blob(text.getBytes());
+    long st = System.nanoTime();
     BlobResult output = db.store(input);
+    double t = (System.nanoTime() - st)/1000000000.;
     
     {
       double a = input.size;
@@ -127,14 +129,15 @@ public class Main {
       totalSoloSize += b;
       double c = output.data.data.length;
       totalFinalSize += c;
-      Util.log("Stored %s as [%s]: %s -(%.03f)-> %s -(%.03f)-> %s", title, output.id, a, b*100./a, b, c*100./b, c);
+      Util.log("Stored %s as [%s] in %.06f: %s -(%.03f)-> %s -(%.03f)-> %s", title, output.id, t/1000., a, b*100./a, b, c*100./b, c);
     }
     
     {
       double a = totalRawSize;
       double b = totalSoloSize;
       double c = totalFinalSize;
-      Util.log("Total stats: %s items in %.3f sec: %s -(%.03f)-> %s -(%.03f)-> %s", numberOfItems++, (System.currentTimeMillis()-startTime)/1000., a, b*100./a, b, c*100./b, c);
+      double sec = (System.currentTimeMillis()-startTime)/1000.;
+      Util.log("Total stats: %s items in %.3f sec: %s -(%.03f)-> %s -(%.03f)-> %s   %.3fkB/sec", numberOfItems++, sec, a, b*100./a, b, c*100./b, c, a / (1024. * sec));
     }
     
     Assert.assertEquals(output.data, db.get(output.id));
