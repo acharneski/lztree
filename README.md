@@ -46,4 +46,4 @@ Due to the wide availibility and similar nature to what we are building here, I 
 
 ## See Also
 
-1. (Blog entry announcing and discussing this project)[http://blog.simiacryptus.com/2015/06/new-project-lztree-compressed-blob.html]
+1. [Blog entry announcing and discussing this project](http://blog.simiacryptus.com/2015/06/new-project-lztree-compressed-blob.html)
