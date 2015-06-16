@@ -43,3 +43,7 @@ Due to the wide availibility and similar nature to what we are building here, I 
 1. https://github.com/torvalds/linux.git - A well-known git repo, about 1GB
 2. https://github.com/apache/spark - Another repo, quite active, about 100MB
 3. https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2
+
+## See Also
+
+1. (Blog entry announcing and discussing this project)[http://blog.simiacryptus.com/2015/06/new-project-lztree-compressed-blob.html]
