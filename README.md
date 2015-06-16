@@ -15,7 +15,17 @@ Our service seeks to extend this technology to implement a random-access blob st
 
 ## Running it
 
-https://github.com/acharneski/lztree/blob/ccf1b6374dfd30ce0962da3255585aa291f8173e/src/test/java/com/simiacryptus/lztree/Main.java#L44
+This project is currently intended to be executed from within an IDE using a junit harness. See [Main.java#L44](https://github.com/acharneski/lztree/blob/ccf1b6374dfd30ce0962da3255585aa291f8173e/src/test/java/com/simiacryptus/lztree/Main.java#L44) for the entry point to load up an in-memory data structure with the blobs in a given git repository. Don't forget to update the string literal before executing it!
+
+
+Example output will be many lines similar to:
+
+```
+Stored commit 1a62d61696a0481508d83a07d19ab3701245ac20 1434412838 ----sp/sql/hive/src/test/resources/ql/src/test/queries/clientpositive/rcfile_merge1.q as [5-18-1-5-1-0#0] in 0.000072: 1344.0 -(29.836)-> 401.0 -(44.638)-> 179.0
+Total stats: 11786 items in 577.921 sec: 2.8961435E7 -(32.367)-> 9373890.0 -(78.254)-> 7335413.0   48.939kB/sec
+Stored commit 1a62d61696a0481508d83a07d19ab3701245ac20 1434412838 ----sp/sql/hive/src/test/resources/ql/src/test/queries/clientpositive/rcfile_merge2.q as [5-18-1-5-1-0-0#0] in 0.000075: 950.0 -(38.000)-> 361.0 -(34.072)-> 123.0
+Total stats: 11787 items in 577.999 sec: 2.8962385E7 -(32.367)-> 9374251.0 -(78.252)-> 7335536.0   48.934kB/sec
+```
 
 ## Data Sets
 
