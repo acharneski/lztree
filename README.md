@@ -13,7 +13,14 @@ A valuble similar structure to what we are developing is a git repository. State
 
 Our service seeks to extend this technology to implement a random-access blob storage service that not only compresses the data blobs individually, but also compresses them based off differences/similarities to existing blobs in the database. These relations are determined at runtime without any given assumptions about use. We implement this by creating a tree structure, where blobs are stored in lists at both leaf and intermediate nodes, and where each node's path defines the initial dictionary of the lz compression phase.
 
+## Running it
+
+https://github.com/acharneski/lztree/blob/ccf1b6374dfd30ce0962da3255585aa291f8173e/src/test/java/com/simiacryptus/lztree/Main.java#L44
+
 ## Data Sets
 
-  # https://github.com/torvalds/linux.git
-  # https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2
+Due to the wide availibility and similar nature to what we are building here, I have found existing git repositories from well-known projects to be good data sources for development. Additionally, there is test support for loading a [wikipedia gzipped xml dump file](https://github.com/acharneski/lztree/blob/ccf1b6374dfd30ce0962da3255585aa291f8173e/src/test/java/com/simiacryptus/lztree/Main.java#L85) to load data with a less redundant nature.
+
+1. https://github.com/torvalds/linux.git - A well-known git repo, about 1GB
+2. https://github.com/apache/spark - Another repo, quite active, about 100MB
+3. https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2
