@@ -27,7 +27,9 @@ Stored commit 1a62d61696a0481508d83a07d19ab3701245ac20 1434412838 ----sp/sql/hiv
 Total stats: 11787 items in 577.999 sec: 2.8962385E7 -(32.367)-> 9374251.0 -(78.252)-> 7335536.0   48.934kB/sec
 ```
 
-Each blob, described as 
+Each blob, described above using a commit id and file path ("1a62d...--sp/sql/....merge1.q"), is fed into the storage engine. The DEFLATE-based compressed first compresses the blob individually, yielding an output 29% the size of input. Then, we identify the path to the optimal priming dictionary (5-18-1-5-1-0) where, using that dictionary, we can reencode to 44% of our intermediate size. This is a compression ratio of almost 8:1, and a signifigant improvement to DEFLATE's naive space performance.
+
+The next blob is encoded using a very similar path (5-18-1-5-1-0-0), suggesting that it is very close in content to the preceeding file.
 
 ## Code/Logic Overview
 
